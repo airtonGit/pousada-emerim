@@ -1,0 +1,118 @@
+/* -----------------------------------------
+	02. Main Navigation
+----------------------------------------- */
+
+.nav {
+	margin: 50px 0 35px;
+}
+
+.nav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.navigation-main {
+   // Navigation functional styles
+ 	li { position: relative; z-index: 100; }
+ 	> li { display: block; }
+ 	ul { position: absolute; z-index: 300; top: -999em; }
+ 	li:hover > ul,
+ 	.sfHover > ul { top: -15px; left: 100%; margin-left: 15px; }
+ 	li li:hover > ul,
+ 	li .sfHover > ul { top: -15; left: 100%; }
+ 	li li li:hover > ul,
+ 	li li .sfHover > ul{ top: -15; left: 100%; }
+ 	a { display: block; white-space: nowrap; }
+
+  a {
+    text-align: left;
+		font-family: $secondary-font;
+		font-size: 14px;
+		color: $text-on-dark;
+		padding: 5px 0;
+    /* Global Menu Link Styles */
+  }
+
+  > li:first-child > a { }
+  > li:last-child > a { }
+
+  a:hover,
+  .sfHover > a {
+    text-decoration: none;
+    /* First Level & Global Menu Link Hover Styles */
+  }
+
+  > li > a {
+
+    /* First Level Menu Link Styles */
+  }
+
+  > li ul a {
+
+    /* All Other Menu Level Link Styles */
+  }
+
+  > li ul a:hover,
+  > li ul .sfHover > a {
+
+    /* All Other Level Menu Link Hover Styles */
+  }
+
+	> li a:hover,
+	> li.sfHover > a {
+		color: $primary-color;
+
+		&.sf-with-ul::after {
+			color: $secondary-color;
+		}
+	}
+
+  > li > a:hover,
+  > li.sfHover > a,
+  > li.sfHover > a:active,
+  > li.current_page_item > a,
+  > li.current-menu-item > a,
+  > li.current-menu-ancestor > a,
+  > li.current-menu-parent > a,
+  > li.current > a {
+		color: $primary-color;
+   /* WordPress First Level Current/Ancestor Hover Page Styles */
+  }
+
+  ul {
+		min-width: 265px;
+		padding: 15px 25px;
+		background-color: $bg-submenu;
+
+		li > a:hover,
+		li.sfHover > a,
+		li.current-menu-item > a,
+		li.current-menu-ancestor > a {
+			color: $primary-color;
+
+			&.sf-with-ul::after {
+				color: $secondary-color;
+			}
+		}
+    /* All Lower Level Menu Container Styles */
+  }
+
+  a.sf-with-ul {
+    position: relative;
+
+		&::after {
+			content: "\f054";
+			font-family: FontAwesome;
+			position: absolute;
+			top: 50%;
+			right: 2px;
+			margin-top: -10px;
+			font-size: 13px;
+			font-weight: normal;
+			color: $text-color-light;
+		}
+    /* Styling for navigation arrows  ---------- */
+  }
+}
+

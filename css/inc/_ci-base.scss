@@ -1,0 +1,530 @@
+/* -----------------------------------------
+	01. General
+----------------------------------------- */
+
+// Reset the box-sizing
+
+html {
+	box-sizing: border-box;
+	-ms-overflow-style: scrollbar;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+* {
+	box-sizing: inherit;
+
+	&::before,
+	&::after {
+		box-sizing: inherit;
+	}
+}
+
+/* Basic Typography
+=================================== */
+body {
+	line-height: 1.733333333;
+	font-size: 15px;
+	background-color: $body-bg;
+	color: $text-color;
+	font-family: $primary-font;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	line-height: normal;
+	margin: 0 0 15px;
+	word-wrap: break-word;
+	text-rendering: optimizeLegibility;
+	font-family: $secondary-font;
+	color: $heading-color;
+}
+
+h1 {
+	font-size: 28px;
+}
+
+h2 {
+	font-size: 24px;
+}
+
+h3 {
+	font-size: 22px;
+}
+
+h4 {
+	font-size: 20px;
+}
+
+h5 {
+	font-size: 18px;
+}
+
+h6 {
+	font-size: 16px;
+}
+
+p {
+	margin: 0 0 15px;
+}
+
+img {
+	display: inline-block;
+	vertical-align: middle;
+	max-width: 100%;
+	height: auto;
+}
+
+a {
+	transition: color .18s ease, background-color .18s ease, border-color .18s ease;
+	outline: none;
+	color: $link-color;
+	text-decoration: none;
+
+	&:hover {
+		color: darken($link-color, 10%);
+		outline: none;
+		text-decoration: none;
+	}
+
+	&:active {
+		outline: none;
+	}
+}
+
+.group {
+	@include clearfix;
+}
+
+/* General Element Styling
+=================================== */
+
+/* Reset figure margin from normalize.css */
+figure {
+	margin: 0;
+}
+
+/* Lists */
+ul, ol {
+	padding-left: 20px;
+}
+
+ul {
+	list-style: disc;
+}
+
+ol {
+	list-style: decimal;
+}
+
+dl {
+	margin: 0 0 20px;
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin: 0 0 15px;
+}
+
+/* Blockquotes */
+blockquote {
+	margin: 20px 0;
+	padding-left: 15px;
+	border-left: 3px solid $border-color;
+	font-size: 17px;
+	font-weight: 300;
+
+	cite {
+		display: block;
+		font-weight: bold;
+		font-style: italic;
+		margin: 10px 0 0;
+		color: rgba($text-color, .8);
+		font-size: 14px;
+	}
+}
+
+/* Tables */
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+	width: 100%;
+}
+
+/* Code */
+code, kbd, tt, var, samp, pre {
+	font-family: monospace, serif;
+	hyphens: none;
+	font-style: normal;
+}
+
+pre {
+	padding: 15px;
+	border: 1px solid rgba(0, 0, 0, .1);
+}
+
+/* Various */
+address {
+	margin: 0 0 15px;
+}
+
+.sr-only,
+.screen-reader-text {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}
+
+/* Embeds and iframes
+=================================== */
+
+embed,
+iframe,
+object,
+video,
+audio {
+	margin-bottom: 15px;
+	max-width: 100%;
+}
+
+p > embed,
+p > iframe,
+p > object,
+p > audio,
+span > embed,
+span > iframe,
+span > object,
+span > audio {
+	margin-bottom: 0;
+}
+
+#map,
+.map {
+	* {
+		max-width: none !important;
+	}
+}
+
+/* General Form Styling
+=================================== */
+
+label {
+	display: block;
+	margin: 0 0 2px;
+	font-weight: normal;
+	font-family: $secondary-font;
+	font-size: 14px;
+}
+
+input,
+textarea {
+	display: inline-block;
+	font-size: inherit;
+	width: 100%;
+	max-width: 100%;
+	height: 36px;
+	padding: 6px 12px;
+	box-shadow: none;
+	line-height: normal;
+	border: 1px solid $border-color;
+	background-color: #ffffff;
+	background-image: none;
+	border-radius: 0;
+
+	&:focus {
+		outline: none;
+	}
+
+	@include media-breakpoint-down(xs) {
+		width: 100%;
+	}
+}
+
+input[type="search"] { /* Restoring box-sizing */
+	box-sizing: border-box;
+}
+
+textarea {
+	height: auto;
+}
+
+select {
+	max-width: 100%;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	margin: 4px 0 0;
+	line-height: normal;
+	width: auto;
+	height: auto;
+}
+
+fieldset {
+	margin: 0 0 15px;
+	padding: 0;
+	border: 0;
+	min-width: 0;
+}
+
+/* Placeholder text color */
+@include placeholder {
+	color: rgba($text-color, .5);
+	font-weight: normal;
+	opacity: 1;
+}
+
+/* Buttons
+=================================== */
+
+.btn,
+.comment-reply-link,
+input[type="submit"],
+input[type="reset"],
+button {
+	display: inline-block;
+	font-weight: normal;
+	margin: 0;
+	line-height: normal;
+	box-shadow: none;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+	white-space: nowrap;
+	transition: .18s background-color ease, color .18s ease, .18s border-color ease;
+	user-select: none;
+	width: auto;
+	height: auto;
+	background-image: none;
+
+	padding: 10px 32px;
+	font-size: 12px;
+	background-color: transparent;
+	color: $heading-color;
+	font-family: $secondary-font;
+	border-radius: 20px;
+	border: 1px solid $border-color;
+
+	&:active {
+		outline: none;
+	}
+
+	&:hover {
+		background: $bg-dark;
+		color: $primary-color;
+		text-decoration: none;
+		border-color: $bg-dark;
+
+		i {
+			color: $secondary-color;
+		}
+	}
+
+	&:focus {
+		outline: none;
+	}
+
+	i {
+		font-size: 16px;
+		margin-left: 5px;
+		line-height: 0;
+		position: relative;
+		top: 1px;
+	}
+
+	.sidebar & {
+		background-color: $secondary-color;
+		color: #fff;
+	}
+}
+
+.btn-xs {
+	padding: 5px 17px;
+	font-size: 11px;
+}
+
+.btn-sm {
+	padding: 8px 24px;
+}
+
+.btn-lg {
+	padding: 14px 44px;
+	font-size: 14px;
+	border-radius: 24px;
+}
+
+/* CI-Slider Overrides
+=================================== */
+.ci-slider {
+	margin: 0;
+	padding: 0;
+	box-shadow: none;
+	border-radius: 0;
+	border: 0;
+
+	.slides {
+		li {
+			&:after {
+				content: " ";
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: -1000;
+			}
+		}
+
+		> li {
+			&:first-child {
+				display: block; /* Display flexslider's first item no matter if its loading or not */
+				backface-visibility: visible;
+			}
+		}
+	}
+
+	&.loading {
+		&::before {
+			@include spinner;
+			content: "";
+			position: absolute;
+			right: 20px;
+			bottom: 20px;
+			z-index: 1000;
+		}
+
+		.slides {
+			> li {
+				&:first-child {
+					opacity: 1 !important; /* Remove the fade in/out animation when the slider loads */
+				}
+			}
+		}
+	}
+}
+
+.ci-viewport {
+	height: 100%;
+	width: 100%;
+}
+
+.ci-direction-nav {
+	a {
+		top: 50%;
+		opacity: .7;
+		line-height: normal;
+
+		&:hover {
+			color: #ffffff;
+			opacity: 1;
+		}
+	}
+}
+
+/* Magnific Popup Overrides
+=================================== */
+.mfp-bg {
+	background-color: #000000;
+}
+
+.mfp-preloader {
+	color: #ffffff;
+
+	a {
+		color: #ffffff;
+
+		&:hover {
+			color: #ffffff;
+		}
+	}
+}
+
+.mfp-container {
+	&:not(.mfp-s-error) {
+		.mfp-preloader {
+			@include spinner;
+			background-color: transparent;
+			text-indent: -999em;
+			margin: 0 auto;
+		}
+	}
+}
+
+button {
+	&.mfp-close,
+	&.mfp-arrow {
+		border: 0;
+		opacity: 1;
+
+		&:hover {
+			background: none;
+			border: 0;
+		}
+	}
+}
+
+.mfp-close-btn-in {
+	.mfp-close {
+		color: #ffffff;
+	}
+}
+
+.mfp-image-holder,
+.mfp-iframe-holder {
+	.mfp-close {
+		color: #ffffff;
+	}
+}
+
+.mfp-arrow {
+	line-height: .3;
+
+	&:before,
+	&:after {
+		border: 0;
+	}
+
+	&:after {
+		font-family: FontAwesome;
+		font-size: 70px;
+		color: #ffffff;
+	}
+}
+
+.mfp-arrow-right {
+	&:after,
+	.mpf-a {
+		content: "\f105";
+	}
+}
+
+.mfp-arrow-left {
+	&:after,
+	.mpf-a {
+		content: "\f104";
+	}
+}
+
+/* Text Alignment Helpers
+=================================== */
+.text-left {
+	text-align: left;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-justified {
+	text-align: justify;
+}

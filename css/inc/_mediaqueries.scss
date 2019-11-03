@@ -1,0 +1,168 @@
+/* -----------------------------------------
+	11. Global Mediaqueries
+----------------------------------------- */
+@media ( max-width: 1220px ) {
+	.content-wrap,
+	.layout-content {
+		width: 700px !important;
+	}
+
+	.main {
+		padding-left: 47px;
+		padding-right: 47px;
+	}
+}
+
+@media ( max-width: 1080px ) {
+	body:not(.page-template-nocontent) {
+		.ci-content-slider-wrapper,
+		.slide-controls,
+		#ci-video-background {
+			display: none;
+		}
+	}
+}
+
+@media ( max-width: 1023px ) {
+	.mobile-toggle {
+		display: block;
+	}
+
+	.layout-sidebar,
+	.sidebar {
+		width: 100% !important;
+		float: none;
+		display: block !important;
+		position: static !important;
+	}
+
+	.layout-sidebar {
+		height: auto !important;
+	}
+
+	.layout-content,
+	.content-wrap {
+		width: 100% !important;
+		max-width: 100%;
+		float: none;
+		position: static !important;
+	}
+
+	.ci-content-slider-wrapper {
+		position: relative;
+		margin: 0;
+		width: auto;
+		height: 100vh;
+	}
+
+	.slide-controls {
+		position: absolute;
+	}
+
+	#ci-video-background {
+		position: relative;
+		top: auto;
+		left: auto;
+		transform: none;
+		max-width: 100%;
+		padding-bottom: 56.25%;
+		min-width: 0;
+		min-height: 0;
+		width: 100% !important;
+		height: 0 !important;
+		pointer-events: auto;
+	}
+
+	.navigation-main {
+		ul {
+			display: block !important;
+			position: static;
+			top: auto;
+			left: auto;
+			margin: 0 0 0 20px !important;
+			background-color: transparent;
+			padding: 0;
+		}
+
+		li {
+			display: block;
+		}
+
+		a {
+			border-bottom: 1px solid $border-color-dark;
+			padding: 7px 0;
+			font-size: 16px;
+		}
+
+		.sf-with-ul {
+			&::after {
+				display: none;
+			}
+		}
+	}
+
+	.sidebar-content {
+		min-height: 0;
+		padding: 25px;
+	}
+
+	.sidebar-inner {
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height .25s ease;
+
+		.mobile-toggled-active & {
+			max-height: 2999px;
+		}
+	}
+
+	.main {
+		min-height: 0;
+		padding: 25px;
+	}
+}
+
+@media ( max-width: 767px ) {
+	.sidebar-content,
+	.main {
+		padding: 25px 15px;
+	}
+
+	.item-entry-thumb {
+		width: 100px;
+		margin-right: 15px;
+	}
+
+	h1 { font-size: 24px; }
+	h2 { font-size: 22px; }
+	h3 { font-size: 20px; }
+	h4 { font-size: 18px; }
+	h5 { font-size: 16px; }
+	h6 { font-size: 15px; }
+
+	.item-entry-title {
+		font-size: 20px;
+	}
+
+	#comments {
+		margin-top: 0;
+	}
+
+	.ci-slider {
+		li {
+			padding-top: 25px;
+		}
+	}
+
+	.ci-slide-content {
+		padding: 25px;
+	}
+
+	.ci-slide-title {
+		font-size: 22px !important;
+	}
+
+	.ci-slide-subtitle {
+		font-size: 16px !important;
+	}
+}

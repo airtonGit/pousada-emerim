@@ -1,0 +1,309 @@
+/* -----------------------------------------
+	07. Widgets Styling
+----------------------------------------- */
+.widget {
+	margin: 0 0 35px;
+	font-size: 12px;
+	font-family: $secondary-font;
+
+	/* Nullify bottom margin for last elements in widgets and sidebars */
+	.sidebar & {
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.sidebar-widgets-bottom & {
+		margin-bottom: 15px;
+	}
+
+	a {
+		color: $primary-color;
+
+		&:hover {
+			color: $text-on-dark;
+		}
+	}
+
+	p {
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	select {
+		width: 100%;
+		padding: 5px 10px;
+		border-radius: 0;
+		border: 1px solid $border-color;
+		color: $text-color;
+	}
+}
+
+.widget-title {
+	font-size: 15px;
+	font-weight: 400;
+
+	.sidebar & {
+		color: $text-on-dark;
+	}
+
+	label {
+		text-transform: none;
+		display: block;
+		font-size: inherit;
+		margin: 0;
+		line-height: inherit;
+		font-weight: inherit;
+	}
+}
+
+/* WIDGET: #List Widgets
+========================================= */
+.widget_meta,
+.widget_pages,
+.widget_categories,
+.widget_archive,
+.widget_nav_menu,
+.widget_recent_entries {
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		ul {
+			margin-left: 15px;
+		}
+	}
+
+	li {
+		line-height: normal;
+		display: block;
+		position: relative;
+
+		a {
+			display: block;
+			padding: 6px 0;
+		}
+
+		.count,
+		.ci-count {
+			position: absolute;
+			right: 0;
+			top: 6px;
+			font-size: 11px;
+			padding: 0;
+		}
+	}
+}
+
+.widget_recent_comments,
+.widget_rss {
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	li {
+		display: block;
+		padding: 7px 0;
+	}
+}
+
+.rss-date {
+	display: block;
+	margin: 3px 0 10px;
+	font-size: 11px;
+}
+
+.widget_pages,
+.widget_categories,
+.widget_archive {
+	select {
+		@include select-style;
+	}
+}
+
+/* WIDGET: #Ads125
+========================================= */
+#ads125,
+.ads125 {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	li {
+		background: none;
+		border: 0;
+		float: left;
+		margin: 0 15px 10px 0;
+		padding: 0;
+		max-width: 125px;
+		height: auto;
+	}
+}
+
+/* WIDGET: #Search
+========================================= */
+.searchform {
+	> div {
+		position: relative;
+	}
+
+	input[type="text"],
+	input[type="search"] {
+		// Styling for the search input if required
+		.sidebar & {
+			border: 0;
+		}
+	}
+
+	.searchsubmit {
+		position: absolute;
+		top: 0;
+		right: 0;
+		height: 100%;
+		border-radius: 0;
+		border: 0;
+		padding: 0 15px;
+
+		i {
+			margin: 0;
+			top: auto;
+		}
+
+		&:hover {
+			color: $text-on-dark;
+
+			i {
+				color: $text-on-dark;
+			}
+		}
+	}
+}
+
+/* WIDGET: #Flickr
+========================================= */
+.flickr_badge_image {
+	float: left;
+	margin: 0 15px 15px 0;
+
+	a {
+		display: block;
+		line-height: 0;
+	}
+}
+
+/* WIDGET: #About
+========================================= */
+.widget_about {
+	margin-top: -5px;
+
+	img {
+		max-width: 100px;
+		height: auto;
+	}
+
+	.alignleft {
+		float: left;
+		margin: 5px 15px 6px 0;
+	}
+
+	.alignright {
+		float: right;
+		margin: 5px 0 6px 15px;
+	}
+}
+
+/* WIDGET: #Text Widget
+========================================= */
+.widget_text {
+	p {
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+/* WIDGET: #Twitter
+========================================= */
+.widget_ci_twitter_widget {
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		li {
+			margin-bottom: 12px;
+
+			&:first-child {
+				padding-top: 0;
+			}
+		}
+	}
+
+	.twitter-time {
+		display: block;
+		font-size: .85em;
+	}
+}
+
+/* WIDGET: #Calendar
+================================================== */
+#wp-calendar {
+	width: 100%;
+
+	a {
+		font-weight: bold;
+		font-style: italic;
+	}
+
+	caption {
+		text-align: left;
+		margin-top: 10px;
+		background: none repeat scroll 0 0 rgba(0, 0, 0, .03);
+		padding: 9px;
+	}
+
+	thead {
+		font-size: 10px;
+
+		th {
+			background: rgba(0, 0, 0, .1);
+			font-weight: bold;
+			padding: 8px;
+		}
+	}
+
+	tbody {
+		td {
+			background: none;
+			border: 1px solid rgba(0, 0, 0, .1);
+			text-align: center;
+			padding: 3px;
+
+			&:hover {
+				background: rgba(0, 0, 0, .1);
+			}
+		}
+
+		.pad {
+			background: none;
+		}
+	}
+
+	tfoot {
+		#next {
+			font-size: 10px;
+			text-transform: uppercase;
+			text-align: right;
+		}
+
+		#prev {
+			font-size: 10px;
+			text-transform: uppercase;
+			padding-top: 10px;
+		}
+	}
+}
