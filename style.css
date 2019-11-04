@@ -444,6 +444,16 @@ button {
 	border-radius: 24px;
 }
 
+a.btn-invertido {
+	color: black !important;
+	background-color: white;
+}
+
+a.btn-invertido:hover{
+	color: white !important;
+	background-color: black;
+}
+
 /* CI-Slider Overrides
 =================================== */
 .ci-slider {
